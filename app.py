@@ -1,6 +1,12 @@
 import streamlit as st
 import pickle
 
+with open("model.pkl", "rb") as f:
+    model = pickle.load(f)
+
+with open("vectorizer.pkl", "rb") as f:
+    vectorizer = pickle.load(f)
+
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
@@ -19,3 +25,4 @@ if st.button("Check"):
         st.error("This News is FAKE ❌")
     else:
         st.success("This News is REAL ✅")
+        
